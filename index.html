@@ -7,20 +7,28 @@
   <meta name="theme-color" content="#0F766E">
   <title>크린고 | 숙소 청소 운영 플랫폼</title>
   <link rel="stylesheet" href="./styles.css">
+  <style>
+    .app-download{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr);gap:22px;align-items:center;padding:38px;background:#17312f;border-radius:26px}.download-copy h2{margin:8px 0 13px;color:#fff}.download-copy>p{max-width:630px;margin-bottom:0;color:#c7dcd7;font-size:15px}.download-copy .tag{color:#73d8be}.store-status{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.store-status span{display:grid;gap:2px;min-width:145px;padding:10px 13px;border:1px solid #ffffff36;border-radius:12px;background:#ffffff0e;color:#fff}.store-status b{font-size:13px}.store-status small{color:#b9d8d1;font-size:11px}.download-note{margin-top:14px!important;color:#9fc7bd!important;font-size:11px!important}.qr-card{display:grid;justify-items:center;gap:8px;padding:20px;background:#fff;border-radius:20px;color:#17302d;text-align:center}.qr-card img{display:block;width:min(100%,220px);height:auto;mix-blend-mode:multiply}.qr-card strong{font-size:14px}.qr-card span{color:#58706b;font-size:11px}@media(max-width:720px){.app-download{grid-template-columns:1fr;padding:27px}.qr-card{max-width:320px;width:100%;margin-inline:auto}}
+  </style>
 </head>
 <body>
   <a class="skip" href="#main">본문으로 이동</a>
   <header class="nav wrap">
     <a class="brand" href="./" aria-label="크린고 홈"><b>C</b> 크린고</a>
-    <nav aria-label="주요 메뉴"><a href="#flow">이용 흐름</a><a href="#settlement">요금·정산</a><a href="#notice">고지</a></nav>
+    <nav aria-label="주요 메뉴"><a href="#flow">이용 흐름</a><a href="#settlement">요금·정산</a><a href="#app-download">앱 다운로드</a><a href="#notice">고지</a></nav>
   </header>
   <main id="main">
     <section class="hero wrap">
       <p class="tag hero-tag">STAY OPERATIONS PLATFORM</p>
       <h1>숙소 청소 운영을<br>더 신뢰할 수 있게.</h1>
       <p class="lead">크린고는 숙소 호스트와 청소 서비스 제공자를 전국 지역 기준으로 연결합니다. 청소 요청부터 작업 시작 확인, 완료 사진 검수, 정산 상태까지 하나의 흐름으로 관리합니다.</p>
-      <div class="actions"><a class="button light" href="#flow">서비스 이용 흐름 보기</a><a class="button outline" href="./legal.html#operations">거래·정산 정책</a></div>
+      <div class="actions"><a class="button light" href="#app-download">앱 다운로드 안내</a><a class="button outline" href="./legal.html#operations">거래·정산 정책</a></div>
       <div class="facts"><div><strong>역할 분리</strong><span>호스트·제공자 계정 분리</span></div><div><strong>6장 완료 인증</strong><span>사진 검수 후 정산 처리</span></div><div><strong>투명한 정산</strong><span>수수료와 잔액을 분리 표시</span></div></div>
+    </section>
+
+    <section id="app-download" class="wrap section app-download">
+      <div class="download-copy"><p class="tag">MOBILE APP</p><h2>크린고 앱으로<br>현장 운영을 관리하세요.</h2><p>호스트와 청소 서비스 제공자는 크린고 앱에서 청소 요청, 클린GO, 완료 사진, 신뢰도와 정산 상태를 확인합니다. 현재 App Store와 Google Play 출시를 준비하고 있습니다.</p><div class="store-status"><span><b>App Store</b><small>출시 후 연결 예정</small></span><span><b>Google Play</b><small>출시 후 연결 예정</small></span></div><p class="download-note">QR 코드는 현재 크린고 공식 안내 페이지로 연결됩니다. 스토어 출시 후 실제 앱 다운로드 페이지로 교체할 예정입니다.</p></div>
+      <aside class="qr-card"><img src="./assets/creango-app-info-qr.png" width="320" height="320" alt="크린고 공식 안내 페이지 QR 코드"><strong>휴대폰 카메라로 스캔</strong><span>앱 출시 소식을 가장 먼저 확인하세요</span></aside>
     </section>
 
     <section id="flow" class="wrap section">
