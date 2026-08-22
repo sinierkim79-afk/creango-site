@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F766E">
+  <meta name="description" content="크린고 고객지원 문의 화면">
+  <title>고객지원 | 크린고</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 이동</a>
+  <header class="nav wrap"><a class="brand" href="./" aria-label="크린고 홈"><b>C</b> 크린고</a><nav aria-label="주요 메뉴"><a href="./#faq">FAQ</a><a href="./">홈으로</a></nav></header>
+  <main id="main" class="wrap">
+    <section class="support section"><p class="tag">CUSTOMER SUPPORT</p><h2>고객지원 문의</h2><p>호스트와 클리너 모두 문의 유형과 내용을 선택해 접수할 수 있습니다. 민감한 출입 정보·계좌번호·개인 연락처는 입력하지 마세요.</p>
+      <form id="support-form" class="support-form" novalidate>
+        <div class="support-grid"><label>문의자 역할<select name="role" required><option value="host">호스트</option><option value="cleaner">클리너</option></select></label><label>문의 유형<select name="category" required><option value="작업 요청">작업 요청</option><option value="긴급 대체">긴급 대체</option><option value="계정 및 프로필">계정 및 프로필</option><option value="앱 이용">앱 이용</option><option value="기타">기타</option></select></label></div>
+        <label>문의 내용<textarea name="message" rows="7" minlength="10" maxlength="2000" required placeholder="문의 내용을 10자 이상 입력해 주세요."></textarea></label>
+        <button class="button support-submit" type="submit">문의 접수하기</button><p id="support-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+  <footer class="wrap"><b>CREANGO</b><p>대표메일 <a href="mailto:contact@creango.kr">contact@creango.kr</a> · 문의접수 <a href="mailto:support@creango.kr">support@creango.kr</a></p><p>© <span id="year"></span> Creango. All rights reserved.</p></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('support-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const status = document.getElementById('support-status');
+      const role = form.elements.role.value;
+      const category = form.elements.category.value;
+      const message = form.elements.message.value.trim();
+      if (message.length < 10) { status.textContent = '문의 내용을 10자 이상 입력해 주세요.'; return; }
+      const roleLabel = role === 'host' ? '호스트' : '클리너';
+      const subject = `[크린고 ${roleLabel} 문의] ${category}`;
+      const body = `문의자 역할: ${roleLabel}\n문의 유형: ${category}\n\n문의 내용:\n${message}`;
+      alert('문의 접수가 준비되었습니다. 이메일 앱에서 내용을 확인한 뒤 보내기를 완료해 주세요.');
+      status.textContent = '이메일 앱을 열어 문의 내용을 준비했습니다.';
+      window.location.href = `mailto:support@creango.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>
