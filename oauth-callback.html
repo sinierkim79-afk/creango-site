@@ -14,7 +14,7 @@
   (() => {
     const title = document.getElementById('title'); const message = document.getElementById('message'); const home = document.getElementById('home');
     const params = new URLSearchParams(location.search); const code = params.get('code'); const state = params.get('state'); const suppliedProvider = params.get('provider'); const error = params.get('error');
-    const apiOrigin = 'https://cleannect-rz6oywhk.manus.space';
+    const apiOrigin = 'https://api.creango.kr';
     const encodeUser = (user) => btoa(unescape(encodeURIComponent(JSON.stringify(user))));
     const fail = (text) => { title.textContent = '로그인을 완료하지 못했어요'; message.textContent = text; message.className = 'error'; home.hidden = false; };
     if (error) return fail('로그인이 취소되었거나 제공자에서 인증을 완료하지 못했습니다. 앱에서 다시 시도해 주세요.');
