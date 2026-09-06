@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F766E">
+  <title>크린고 친구 초대</title>
+  <style>
+    :root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;color:#182421;background:#f7faf9}.page{min-height:100vh;display:grid;place-items:center;padding:24px;box-sizing:border-box}.card{width:min(420px,100%);padding:34px 28px;border:1px solid #dce8e4;border-radius:24px;background:#fff;box-shadow:0 18px 55px #0b282514;text-align:center}.mark{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 16px;border-radius:17px;background:#0f766e;color:#fff;font-size:25px;font-weight:900}.brand{margin:0;color:#0f766e;font-size:12px;font-weight:900;letter-spacing:1.2px}.card h1{margin:9px 0 10px;font-size:23px;letter-spacing:-.5px}.card p{margin:0;color:#62716e;font-size:14px;line-height:1.6}.retry{display:inline-block;margin-top:18px;color:#0f766e;font-size:13px;font-weight:800;text-decoration:none}
+    .code-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px 0 6px}.code-row[hidden]{display:none}.code-text{padding:12px 18px;border:1.5px dashed #0f766e;border-radius:14px;color:#0f766e;font-size:20px;font-weight:900;letter-spacing:3px}.copy-btn{padding:12px 16px;border:0;border-radius:12px;background:#0f766e;color:#fff;font-size:13px;font-weight:800;cursor:pointer}.copy-btn:active{opacity:.85}.hint{margin-top:16px;color:#899691;font-size:12px;line-height:1.6}
+  </style>
+</head>
+<body><main class="page"><section class="card" aria-live="polite">
+  <div class="mark">C</div><p class="brand">CREANGO</p>
+  <h1 id="title">초대 링크를 확인하고 있어요</h1>
+  <p id="message">잠시만 기다려 주세요...</p>
+  <div id="codeRow" class="code-row" hidden><span id="codeText" class="code-text"></span><button id="copyBtn" type="button" class="copy-btn">복사</button></div>
+  <p id="hint" class="hint" hidden>크린고 앱은 현재 출시를 준비하고 있어요. 위 추천코드를 저장해 두었다가, 앱 설치 후 다시 이 링크를 눌러 친구 초대를 연결해 주세요. 이미 앱이 설치되어 있다면 이 페이지를 새로고침해 보세요.</p>
+  <a id="home" class="retry" href="./" hidden>크린고 홈페이지로 이동</a>
+</section></main>
+<script>
+  (() => {
+    const title = document.getElementById('title');
+    const message = document.getElementById('message');
+    const codeRow = document.getElementById('codeRow');
+    const codeText = document.getElementById('codeText');
+    const copyBtn = document.getElementById('copyBtn');
+    const hint = document.getElementById('hint');
+    const home = document.getElementById('home');
+
+    const params = new URLSearchParams(location.search);
+    const code = (params.get('code') || '').trim().toUpperCase();
+
+    if (!/^[A-Z0-9]{4,12}$/.test(code)) {
+      title.textContent = '유효하지 않은 초대 링크예요';
+      message.textContent = '링크를 다시 확인해 주세요.';
+      home.hidden = false;
+      return;
+    }
+
+    codeText.textContent = code;
+    codeRow.hidden = false;
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard?.writeText(code).then(() => {
+        copyBtn.textContent = '복사됨';
+        setTimeout(() => { copyBtn.textContent = '복사'; }, 1500);
+      });
+    });
+
+    // 크린고 앱이 이미 설치되어 있으면 커스텀 스킴으로 바로 연결을 시도한다.
+    // (app.config.ts의 scheme과 동일한 값 — 앱이 열리면 이 페이지는 그대로 백그라운드에 남는다.)
+    let appOpened = false;
+    document.addEventListener('visibilitychange', () => { if (document.hidden) appOpened = true; });
+    setTimeout(() => {
+      if (appOpened) return;
+      title.textContent = '크린고에 초대되었어요 🎁';
+      message.textContent = '아래 추천코드를 저장해 두세요.';
+      hint.hidden = false;
+      home.hidden = false;
+    }, 1200);
+    location.href = 'manuscleannect://invite/' + encodeURIComponent(code);
+  })();
+</script></body></html>

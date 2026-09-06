@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F766E">
+  <title>페이지를 찾을 수 없어요</title>
+  <style>
+    :root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;color:#182421;background:#f7faf9}.page{min-height:100vh;display:grid;place-items:center;padding:24px;box-sizing:border-box}.card{width:min(420px,100%);padding:34px 28px;border:1px solid #dce8e4;border-radius:24px;background:#fff;box-shadow:0 18px 55px #0b282514;text-align:center}.mark{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 16px;border-radius:17px;background:#0f766e;color:#fff;font-size:25px;font-weight:900}.brand{margin:0;color:#0f766e;font-size:12px;font-weight:900;letter-spacing:1.2px}.card h1{margin:9px 0 10px;font-size:23px;letter-spacing:-.5px}.card p{margin:0;color:#62716e;font-size:14px;line-height:1.6}.retry{display:inline-block;margin-top:18px;color:#0f766e;font-size:13px;font-weight:800;text-decoration:none}
+  </style>
+</head>
+<body><main class="page"><section class="card"><div class="mark">C</div><p class="brand">CREANGO</p><h1 id="title">페이지를 찾을 수 없어요</h1><p id="message">주소를 다시 확인해 주세요.</p><a id="home" class="retry" href="./">크린고 홈으로 이동</a></section></main>
+<script>
+  (() => {
+    // GitHub Pages는 정적 사이트라 /invite/{code} 같은 동적 경로를 직접 라우팅할 수 없다.
+    // 존재하지 않는 경로 요청은 전부 이 404.html로 오는데, 그중 /invite/{code} 형태만
+    // invite.html로 넘겨주고, 그 외의 진짜 404는 위 기본 안내를 그대로 보여준다.
+    const match = location.pathname.match(/\/invite\/([A-Za-z0-9]{4,12})\/?$/);
+    if (match) location.replace('/invite.html?code=' + encodeURIComponent(match[1]));
+  })();
+</script></body></html>
