@@ -25,15 +25,23 @@
       const decoded = decodeURIComponent(Array.prototype.map.call(atob(normalized), (c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
       const data = JSON.parse(decoded);
       const destination = new URL(data.returnTo);
-      if (destination.protocol !== 'manuscleannect:' || !data.provider || (suppliedProvider && data.provider !== suppliedProvider)) throw new Error('invalid-state');
+      const isNativeReturn = destination.protocol === 'manuscleannect:';
+      const isWebReturn = destination.protocol === 'https:' && ['creango.kr', 'www.creango.kr', 'app.creango.kr'].includes(destination.hostname);
+      if ((!isNativeReturn && !isWebReturn) || !data.provider || (suppliedProvider && data.provider !== suppliedProvider)) throw new Error('invalid-state');
       title.textContent = '로그인 정보를 안전하게 연결하고 있어요';
-      message.textContent = '잠시 후 크린고 앱으로 돌아갑니다.';
+      message.textContent = isNativeReturn ? '잠시 후 크린고 앱으로 돌아갑니다.' : '잠시 후 크린고로 돌아갑니다.';
       fetch(apiOrigin + '/api/social-auth/exchange', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ provider: data.provider, code, state }) })
         .then(async (response) => { const result = await response.json().catch(() => ({})); if (!response.ok || !result.app_session_id || !result.user) throw new Error(result.error || 'exchange-failed'); return result; })
         .then((result) => {
           destination.searchParams.set('sessionToken', result.app_session_id);
           destination.searchParams.set('user', encodeUser(result.user));
           const finalUrl = destination.toString();
+          if (!isNativeReturn) {
+            // Web return: a normal same-origin https redirect, no custom-scheme
+            // gesture restrictions apply, so a plain navigation always works.
+            location.replace(finalUrl);
+            return;
+          }
           // Some mobile browsers block a script-driven redirect to a custom
           // URL scheme unless it happens within a live user gesture — a
           // fetch().then() callback runs too late for that. So we still try
