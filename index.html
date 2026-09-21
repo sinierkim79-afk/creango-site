@@ -18,6 +18,17 @@
   <meta name="twitter:title" content="크린고 | 에어비앤비 청소·숙소 청소 매니저 매칭 플랫폼">
   <meta name="twitter:description" content="에어비앤비 청소, 숙소 청소, 객실 청소를 전문 크린매니저와 연결합니다.">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./intro.css">
+  <script>
+    /* 입장 화면은 처음 방문했을 때만 보인다 — #앵커 주소로 들어왔거나 이 탭에서 이미 입장했으면 건너뛴다(JS가 꺼져 있어도 홈페이지는 그대로 보인다). */
+    (function () {
+      try {
+        if (location.hash && location.hash.length > 1) return;
+        if (sessionStorage.getItem('creango-intro-entered')) return;
+        document.documentElement.classList.add('has-intro');
+      } catch (error) { /* 저장소가 막힌 환경에서는 인트로를 건너뛴다 */ }
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,6 +77,132 @@
   </style>
 </head>
 <body>
+  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <span class="intro-glow g1" aria-hidden="true"></span><span class="intro-glow g2" aria-hidden="true"></span>
+    <span class="intro-spark s1" aria-hidden="true"></span><span class="intro-spark s2" aria-hidden="true"></span><span class="intro-spark s3" aria-hidden="true"></span><span class="intro-spark s4" aria-hidden="true"></span><span class="intro-spark s5" aria-hidden="true"></span>
+    <div class="intro-brand" aria-hidden="true"><b>C</b> 크린고</div>
+    <div class="intro-inner">
+      <div class="intro-copy">
+        <div class="intro-heading">
+          <span class="intro-kicker">AIRBNB · STAY CLEANING PLATFORM</span>
+          <p id="intro-title" class="intro-title"><span>공간청소</span> <em>즉시매칭</em></p>
+          <p class="intro-sub">공고가 올라오면 내 지역 크린매니저에게 바로 알리고, 수락하는 순간 배정이 끝납니다.</p>
+        </div>
+        <div class="intro-actions">
+          <button id="intro-enter" class="intro-enter" type="button" aria-label="ENTER, 크린고 홈페이지로 입장"><span>ENTER</span><kbd aria-hidden="true">⏎</kbd></button>
+          <span class="intro-hint"><span class="hint-key">키보드 Enter 키를 눌러도 입장해요</span><span class="hint-touch">버튼을 눌러 입장하세요</span></span>
+        </div>
+      </div>
+      <div class="intro-scene" role="img" aria-label="크린매니저가 휴대폰으로 청소 공고를 수락하고 환하게 웃는 모습">
+        <span class="intro-chip c1" aria-hidden="true"><i></i>내 지역 즉시 알림</span>
+        <span class="intro-chip c2" aria-hidden="true"><i></i>완료 사진 6장 인증</span>
+        <span class="intro-chip c3" aria-hidden="true"><i></i>클린GO 도착 확인</span>
+        <svg class="scene" viewBox="0 0 640 720" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="introBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#19b5a5"/><stop offset="1" stop-color="#0a5b55"/></linearGradient>
+            <clipPath id="introMouthClip"><path d="M182 404 Q225 470 268 404 Z"/></clipPath>
+          </defs>
+          <ellipse cx="320" cy="706" rx="270" ry="20" fill="#021d1a" opacity=".3"/>
+
+          <g class="char">
+            <path d="M40 720 C40 590 110 522 225 522 C340 522 410 590 410 720 Z" fill="url(#introBody)"/>
+            <path d="M168 522 L225 590 L282 522 Z" fill="#fff" opacity=".93"/>
+            <circle cx="300" cy="640" r="21" fill="#fff"/>
+            <text x="300" y="648" text-anchor="middle" font-size="23" font-weight="900" fill="#0F766E" font-family="system-ui,sans-serif">C</text>
+            <rect x="200" y="468" width="50" height="64" rx="20" fill="#eeb98f"/>
+            <g class="head">
+              <path d="M120 350 C108 430 134 468 168 478 L172 356 Z" fill="#3a2823"/>
+              <path d="M330 350 C342 430 316 468 282 478 L278 356 Z" fill="#3a2823"/>
+              <circle cx="127" cy="378" r="16" fill="#f0bd93"/><circle cx="323" cy="378" r="16" fill="#f0bd93"/>
+              <circle cx="225" cy="365" r="100" fill="#f6cfa9"/>
+              <path d="M125 350 C125 264 170 234 225 234 C280 234 325 264 325 350 C292 333 158 333 125 350 Z" fill="#0F766E"/>
+              <path d="M298 340 C352 334 376 350 372 364 C340 358 318 356 298 356 Z" fill="#0b544e"/>
+              <circle cx="225" cy="284" r="22" fill="#fff"/>
+              <text x="225" y="293" text-anchor="middle" font-size="26" font-weight="900" fill="#0F766E" font-family="system-ui,sans-serif">C</text>
+              <path d="M176 380 q20 -26 40 0" stroke="#2b1d18" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <path d="M234 380 q20 -26 40 0" stroke="#2b1d18" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <ellipse cx="164" cy="408" rx="17" ry="11" fill="#ff8f8f" opacity=".5"/>
+              <ellipse cx="286" cy="408" rx="17" ry="11" fill="#ff8f8f" opacity=".5"/>
+              <g class="mouth">
+                <path d="M182 404 Q225 470 268 404 Z" fill="#8a2f2f"/>
+                <g clip-path="url(#introMouthClip)"><ellipse cx="225" cy="442" rx="26" ry="14" fill="#e8737b"/><rect x="176" y="398" width="98" height="16" fill="#fff"/></g>
+              </g>
+            </g>
+          </g>
+
+          <g transform="translate(372 290) rotate(5 100 180)"><g class="phone-float">
+            <rect width="200" height="360" rx="32" fill="#0b1f1d"/>
+            <rect x="80" y="4" width="40" height="6" rx="3" fill="#1f3a37"/>
+            <g transform="translate(9 12)">
+              <rect width="182" height="336" rx="24" fill="#f7faf9"/>
+              <path d="M0 24 A24 24 0 0 1 24 0 H158 A24 24 0 0 1 182 24 V52 H0 Z" fill="#0F766E"/>
+              <text x="16" y="34" font-size="16" font-weight="900" fill="#fff" font-family="system-ui,sans-serif">크린고</text>
+              <rect x="116" y="18" width="52" height="22" rx="11" fill="#fff" opacity=".22"/>
+              <text x="142" y="33" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" font-family="system-ui,sans-serif">내 지역</text>
+
+              <g transform="translate(12 232)">
+                <rect width="158" height="86" rx="14" fill="#fff" stroke="#d7e4e1"/>
+                <text x="12" y="26" font-size="10.5" font-weight="800" fill="#17302d" font-family="system-ui,sans-serif">부산 수영구 · 게스트하우스</text>
+                <text x="12" y="46" font-size="10" fill="#58706b" font-family="system-ui,sans-serif">내일 11:00 · 38,000원</text>
+                <rect x="12" y="58" width="52" height="18" rx="9" fill="#eef4f2"/>
+                <text x="38" y="71" text-anchor="middle" font-size="9" font-weight="800" fill="#58706b" font-family="system-ui,sans-serif">일반 공고</text>
+              </g>
+
+              <g transform="translate(12 62)">
+                <g class="card">
+                  <rect width="158" height="150" rx="16" fill="#fff" stroke="#bfe2da" stroke-width="1.5"/>
+                  <rect x="12" y="12" width="62" height="20" rx="10" fill="#DDF4EE"/>
+                  <text x="43" y="26" text-anchor="middle" font-size="10" font-weight="900" fill="#0F766E" font-family="system-ui,sans-serif">즉시 매칭</text>
+                  <text x="12" y="54" font-size="13" font-weight="900" fill="#17302d" font-family="system-ui,sans-serif">영등포구 · 오피스텔</text>
+                  <text x="12" y="72" font-size="10.5" fill="#58706b" font-family="system-ui,sans-serif">오늘 14:00 · 약 2시간</text>
+                  <text x="12" y="102" font-size="21" font-weight="900" fill="#0F766E" font-family="system-ui,sans-serif">45,000원</text>
+                  <g class="btn-press"><rect x="12" y="112" width="134" height="28" rx="10" fill="#0F766E"/><text x="79" y="131" text-anchor="middle" font-size="13" font-weight="900" fill="#fff" font-family="system-ui,sans-serif">수락</text></g>
+                </g>
+                <g class="done">
+                  <rect width="158" height="150" rx="16" fill="#fff" stroke="#86d3c2" stroke-width="1.5"/>
+                  <circle cx="79" cy="50" r="26" fill="#16a34a"/>
+                  <path d="M67 50 l9 9 l17 -19" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="79" y="102" text-anchor="middle" font-size="16" font-weight="900" fill="#17302d" font-family="system-ui,sans-serif">매칭 완료!</text>
+                  <text x="79" y="120" text-anchor="middle" font-size="9" fill="#58706b" font-family="system-ui,sans-serif">호스트에게 배정이 전달됐어요</text>
+                </g>
+              </g>
+
+              <g transform="translate(91 188)">
+                <circle class="ripple" r="6" fill="none" stroke="#0F766E" stroke-width="3"/>
+                <g class="finger"><circle r="14" fill="#fff" stroke="#0F766E" stroke-width="3"/><circle r="5" fill="#0F766E" opacity=".25"/></g>
+              </g>
+            </g>
+          </g></g>
+
+          <path d="M328 645 C348 606 372 590 396 580 L432 616 C404 634 384 664 366 720 L322 720 Z" fill="#0d6f68"/>
+          <ellipse cx="398" cy="590" rx="27" ry="21" fill="#f6cfa9"/>
+          <rect x="392" y="556" width="15" height="44" rx="7.5" fill="#f6cfa9" transform="rotate(-18 399 578)"/>
+
+          <g class="confetti" transform="translate(472 470)">
+            <circle r="7" fill="#fbbf24" style="--dx:-150px;--dy:-170px;--rot:80deg"/>
+            <rect x="-6" y="-3" width="12" height="6" rx="2" fill="#34d399" style="--dx:130px;--dy:-190px;--rot:200deg"/>
+            <circle r="6" fill="#60a5fa" style="--dx:170px;--dy:-60px;--rot:0deg"/>
+            <rect x="-6" y="-3" width="12" height="6" rx="2" fill="#f472b6" style="--dx:-190px;--dy:-40px;--rot:150deg"/>
+            <circle r="5" fill="#fff" style="--dx:-90px;--dy:-230px;--rot:0deg"/>
+            <rect x="-6" y="-3" width="12" height="6" rx="2" fill="#fbbf24" style="--dx:80px;--dy:-240px;--rot:-120deg"/>
+            <circle r="6" fill="#34d399" style="--dx:-210px;--dy:80px;--rot:0deg"/>
+            <rect x="-6" y="-3" width="12" height="6" rx="2" fill="#60a5fa" style="--dx:190px;--dy:90px;--rot:260deg"/>
+            <circle r="5" fill="#f472b6" style="--dx:-40px;--dy:-260px;--rot:0deg"/>
+            <circle r="7" fill="#fff" style="--dx:40px;--dy:-210px;--rot:0deg"/>
+            <path d="M0 -10 L3 -3 L10 0 L3 3 L0 10 L-3 3 L-10 0 L-3 -3 Z" fill="#fde68a" style="--dx:-120px;--dy:-120px;--rot:90deg"/>
+            <path d="M0 -10 L3 -3 L10 0 L3 3 L0 10 L-3 3 L-10 0 L-3 -3 Z" fill="#fde68a" style="--dx:140px;--dy:-120px;--rot:-90deg"/>
+          </g>
+
+          <g class="earn">
+            <rect x="380" y="232" width="176" height="46" rx="23" fill="#fff"/>
+            <circle cx="406" cy="255" r="11" fill="#16a34a"/>
+            <path d="M401 255 l4 4 l8 -9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="428" y="261" font-size="15" font-weight="900" fill="#0b4f49" font-family="system-ui,sans-serif">+45,000원 배정</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
   <a class="skip" href="#main">본문으로 이동</a>
   <header class="nav wrap">
     <a class="brand" href="./" aria-label="크린고 홈"><b>C</b> 크린고</a>
@@ -118,5 +255,6 @@
     const publicSupportApi = 'https://api.creango.kr/api/public-support'; const supportSubmit = supportForm.querySelector('.support-submit'); const toBase64 = (file) => new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result).split(',')[1]); reader.onerror = () => reject(new Error('파일을 읽지 못했습니다.')); reader.readAsDataURL(file); });
     supportForm.addEventListener('submit', async (event) => { event.preventDefault(); const role = supportForm.elements.role.value; const category = supportForm.elements.category.value; const email = supportForm.elements.email.value.trim(); const message = supportForm.elements.message.value.trim(); const files = Array.from(supportForm.elements.files.files || []); if (!/^\S+@\S+\.\S+$/.test(email)) { supportStatus.textContent = '회신 받을 이메일 주소를 확인해 주세요.'; return; } if (message.length < 10) { supportStatus.textContent = '문의 내용을 10자 이상 입력해 주세요.'; return; } if (files.length > 3) { supportStatus.textContent = '첨부 파일은 최대 3개까지 선택할 수 있습니다.'; return; } const allowed = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf']; if (files.some((file) => !allowed.includes(file.type) || file.size > 3 * 1024 * 1024)) { supportStatus.textContent = 'JPG, PNG, WEBP 또는 PDF만 개당 3MB 이하로 첨부할 수 있습니다.'; return; } try { supportSubmit.disabled = true; supportSubmit.textContent = files.length ? '파일을 올리는 중...' : '문의 접수 중...'; supportStatus.textContent = '문의 내용을 안전하게 접수하고 있습니다.'; const attachments = await Promise.all(files.map(async (file) => ({ name: file.name, mimeType: file.type, base64: await toBase64(file) }))); const response = await fetch(publicSupportApi, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ role, category, email, message, attachments }) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || '문의 접수에 실패했습니다.'); supportForm.reset(); supportStatus.textContent = `문의 #${result.ticketId}가 접수되었습니다. 답변이 완료되면 입력한 이메일로 안내합니다.`; alert('문의 접수 완료\n운영자 확인 후 답변이 등록되면 입력한 이메일로 안내해 드립니다.'); } catch (error) { supportStatus.textContent = error instanceof Error ? error.message : '문의 접수에 실패했습니다. 잠시 후 다시 시도해 주세요.'; } finally { supportSubmit.disabled = false; supportSubmit.textContent = '문의 접수하기'; } });
   </script>
+  <script src="./intro.js" defer></script>
 </body>
 </html>
