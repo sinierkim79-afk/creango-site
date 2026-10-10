@@ -83,6 +83,23 @@
   <style>
     .app-download{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr);gap:22px;align-items:center;padding:38px;background:#17312f;border-radius:26px}.download-copy h2{margin:8px 0 13px;color:#fff}.download-copy>p{max-width:630px;margin-bottom:0;color:#c7dcd7;font-size:15px}.download-copy .tag{color:#73d8be}.store-status{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.store-status span{display:grid;gap:2px;min-width:145px;padding:10px 13px;border:1px solid #ffffff36;border-radius:12px;background:#ffffff0e;color:#fff}.store-status b{font-size:13px}.store-status small{color:#b9d8d1;font-size:11px}.download-note{margin-top:14px!important;color:#9fc7bd!important;font-size:11px!important}.qr-card{display:grid;justify-items:center;gap:8px;padding:20px;background:#fff;border-radius:20px;color:#17302d;text-align:center}.qr-card img{display:block;width:min(100%,220px);height:auto;mix-blend-mode:multiply}.qr-card strong{font-size:14px}.qr-card span{color:#58706b;font-size:11px}.modal-open{overflow:hidden}.support-modal[hidden]{display:none}.support-modal{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:24px}.support-modal__backdrop{position:absolute;inset:0;background:#0b2825a8;backdrop-filter:blur(4px)}.support-modal__dialog{position:relative;width:min(680px,100%);max-height:min(850px,calc(100vh - 48px));overflow:auto;padding:30px;border:1px solid #c5e1d9;border-radius:25px;background:#f7faf9;box-shadow:0 30px 70px #09211e55}.support-modal__close{position:absolute;top:17px;right:17px;width:38px;height:38px;border:0;border-radius:50%;color:#58706b;background:#e9f2ef;font-size:24px;line-height:1;cursor:pointer}.support-modal__dialog h2{margin:7px 42px 8px 0}.support-modal__dialog>p{color:var(--muted);font-size:13px}.support-option-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.support-option{display:flex;align-items:flex-start;gap:10px;min-height:76px;padding:13px;border:1px solid var(--line);border-radius:15px;background:#fff;cursor:pointer}.support-option:focus-within{outline:3px solid #0f766e20;border-color:var(--teal)}.support-option input{position:absolute;opacity:0;pointer-events:none}.support-option__icon{display:grid;flex:0 0 34px;place-items:center;width:34px;height:34px;border-radius:10px;color:var(--teal);background:#e7f5f1;font-size:16px;font-weight:900}.support-option b{display:block;font-size:13px}.support-option small{display:block;margin-top:2px;color:var(--muted);font-size:11px;line-height:1.35}.support-option:has(input:checked){border-color:var(--teal);background:#eaf7f3;box-shadow:inset 0 0 0 1px var(--teal)}.support-option:has(input:checked) .support-option__icon{color:#fff;background:var(--teal)}.support-role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.support-modal .form-label{display:block;margin:20px 0 8px;color:var(--ink);font-size:13px;font-weight:900}.support-modal textarea{width:100%;min-height:126px;padding:13px;border:1px solid var(--line);border-radius:14px;resize:vertical;color:var(--ink);background:#fff;font:inherit}.support-modal textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px #0f766e20}.support-modal__footer{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:14px}.support-modal__note{margin:0;color:var(--muted);font-size:11px;line-height:1.45}.support-modal .support-submit{justify-self:auto}@media(max-width:720px){.app-download{grid-template-columns:1fr;padding:27px}.qr-card{max-width:320px;width:100%;margin-inline:auto}.support-modal{padding:14px;place-items:end center}.support-modal__dialog{max-height:calc(100vh - 28px);padding:25px 18px 20px;border-radius:23px}.support-option-grid{grid-template-columns:1fr}.support-modal__footer{align-items:stretch;flex-direction:column}.support-modal .support-submit{width:100%}}
   </style>
+<style>
+    .prereg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:26px;align-items:start;padding:36px;border-radius:26px;background:linear-gradient(135deg,#0d5d57,#17312f);color:#fff}
+    .prereg h2{margin:6px 0 12px;color:#fff;font-size:clamp(24px,4vw,34px);line-height:1.25}.prereg .tag{color:#9be7d9}
+    .prereg-period{display:inline-block;margin:0 0 12px;padding:6px 12px;border-radius:999px;background:#ffd86b;color:#4a3500;font-size:13px;font-weight:900}
+    .prereg-copy p{margin:0 0 10px;color:#d6ece8;line-height:1.7}.prereg-benefit{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.1);color:#fff!important;font-weight:800}
+    .prereg-fine{margin-top:8px!important;font-size:11px;line-height:1.5;color:#a9cfc8!important}
+    .prereg-form{display:grid;gap:14px;padding:22px;border-radius:20px;background:#fff;color:#17302d}.prereg-form fieldset{margin:0;padding:0;border:0}.prereg-form legend{margin-bottom:8px;font-size:13px;font-weight:900}
+    .prereg-roles{display:grid;grid-template-columns:1fr 1fr;gap:10px}.prereg-roles label{position:relative;display:flex;align-items:center;justify-content:center;min-height:52px;padding:10px;border:2px solid #d7e7e2;border-radius:14px;font-size:15px;font-weight:900;cursor:pointer;text-align:center}
+    .prereg-roles input{position:absolute;opacity:0;inset:0;cursor:pointer}.prereg-roles label:has(input:checked){border-color:#0F766E;background:#DDF4EE;color:#0d5d57}.prereg-roles label:has(input:focus-visible){outline:3px solid #0F766E;outline-offset:2px}
+    .prereg-form .field-label{display:block;margin-bottom:6px;font-size:13px;font-weight:900}.prereg-form input[type=tel]{width:100%;min-height:52px;padding:12px 14px;border:2px solid #d7e7e2;border-radius:14px;font-size:17px;font-weight:700;color:#17302d;background:#f7faf9}
+    .prereg-form input[type=tel]:focus{outline:none;border-color:#0F766E;background:#fff}
+    .prereg-consent{display:grid;gap:8px;font-size:12.5px;line-height:1.5;color:#3d5a55}.prereg-consent label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}.prereg-consent input{margin-top:3px;width:17px;height:17px;flex:none}
+    .prereg-consent details{font-size:11.5px;color:#58706b}.prereg-consent summary{cursor:pointer;font-weight:800}
+    .prereg-submit{min-height:54px;border:0;border-radius:14px;background:#0F766E;color:#fff;font-size:16px;font-weight:900;cursor:pointer}.prereg-submit:disabled{opacity:.6;cursor:wait}
+    .prereg-message{min-height:20px;margin:0;font-size:13.5px;font-weight:800}.prereg-message.ok{color:#0F766E}.prereg-message.err{color:#b4233c}
+    @media(max-width:760px){.prereg{grid-template-columns:1fr;padding:24px 18px}}
+  </style>
 </head>
 <body>
   <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
@@ -214,10 +231,11 @@
   <a class="skip" href="#main">본문으로 이동</a>
   <header class="nav wrap">
     <a class="brand" href="./" aria-label="크린고 홈"><b>C</b> 크린고</a>
-    <nav aria-label="주요 메뉴"><a href="#flow">이용 흐름</a><a href="#facilities">시설·가전</a><a href="#pricing">이용 요금</a><a href="#app-download">앱 다운로드</a><a href="#faq">FAQ</a><a href="#support">고객지원</a></nav>
+    <nav aria-label="주요 메뉴"><a href="#pre-register">사전가입</a><a href="#flow">이용 흐름</a><a href="#facilities">시설·가전</a><a href="#pricing">이용 요금</a><a href="#app-download">앱 다운로드</a><a href="#faq">FAQ</a><a href="#support">고객지원</a></nav>
   </header>
   <main id="main">
     <section class="hero wrap"><p class="tag hero-tag">SPACE CLEANING PLATFORM</p><h1>숙소부터 시설·가전까지,<br>공간청소를 더 신뢰할 수 있게.</h1><p class="lead">크린고는 숙소 클라이언트와 크린매니저를 지역 기준으로 연결하는 공간청소 매칭 플랫폼입니다. 에어비앤비 등 숙박 클라이언트의 객실 청소는 물론, 사무공간·매장의 시설·가전·가구 청소까지 요청부터 작업 시작 확인, 완료 사진 검수까지 필요한 운영 흐름을 한곳에서 관리합니다.</p><div class="actions"><a class="button light" href="#app-download">앱 다운로드 안내</a></div><div class="facts"><div><strong>역할 분리</strong><span>클라이언트·크린매니저 계정 분리</span></div><div><strong>6장 완료 인증</strong><span>사진으로 작업 상태 확인</span></div><div><strong>작업 기록</strong><span>앱 안에서 확인·관리</span></div></div></section>
+    <section id="pre-register" class="wrap section prereg" aria-labelledby="prereg-title"><div class="prereg-copy"><p class="tag">PRE-REGISTRATION</p><span class="prereg-period">현재 사전가입 기간입니다.</span><h2 id="prereg-title">미리 가입하고<br>1개월 수수료 없이 시작하세요.</h2><p>휴대폰 번호만 남겨 두시면 정식 출시 때 문자로 가장 먼저 알려 드립니다.</p><p class="prereg-benefit">사전가입하시면 클라이언트·크린매니저 모두 정식 출시 후 1개월 동안 수수료 없이 이용하실 수 있어요.</p><p class="prereg-fine">※ 결제대행사(PG) 수수료는 별도로 부과됩니다.</p></div><form id="pre-register-form" class="prereg-form" novalidate><fieldset><legend>어떻게 이용하실 예정인가요?</legend><div class="prereg-roles"><label><input type="radio" name="role" value="host" checked><span>클라이언트<br><small>청소를 맡길게요</small></span></label><label><input type="radio" name="role" value="cleaner"><span>크린매니저<br><small>청소를 할게요</small></span></label></div></fieldset><div><label class="field-label" for="pre-register-phone">휴대폰 번호</label><input id="pre-register-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13" required></div><div class="prereg-consent"><label><input type="checkbox" name="consentPrivacy" required><span>(필수) 개인정보 수집·이용에 동의합니다.</span></label><details><summary>수집·이용 안내 보기</summary><p>수집 항목: 휴대폰 번호, 선택한 이용 유형 · 이용 목적: 정식 출시 안내 문자 발송 및 수수료 면제 혜택 안내 · 보유 기간: 출시 안내 및 혜택 적용 완료 후 지체 없이 파기(동의 철회 시 즉시 삭제). 동의를 거부할 수 있으나, 거부하면 사전가입이 어렵습니다.</p></details><label><input type="checkbox" name="consentLaunchSms" required><span>(필수) 출시 안내 문자 수신에 동의합니다.</span></label></div><button class="prereg-submit" type="submit">사전가입하기</button><p id="pre-register-message" class="prereg-message" role="status" aria-live="polite"></p></form></section>
     <section class="wrap section grid two"><article class="feature mint"><p class="tag">AREA · 부산에서 시작</p><h2>부산 숙소·시설 청소,<br>해운대·수영구부터.</h2><p>크린고는 부산광역시 해운대구·수영구에서 먼저 서비스 지역을 열고, 남구·부산진구를 거쳐 경남과 서울·경기로 순차 확장하고 있습니다. 에어비앤비·게스트하우스 같은 숙박 클라이언트부터 사무공간·매장까지, 부산 지역 크린매니저와 빠르게 연결합니다.</p></article><article class="feature list"><p>부산 에어비앤비·숙소 청소 매칭</p><p>체크아웃 일정에 맞춘 반복 청소 예약</p><p>서비스 지역은 순차적으로 전국 확장 예정</p></article></section>
     <section id="app-download" class="wrap section app-download"><div class="download-copy"><p class="tag">MOBILE APP</p><h2>크린고 앱으로<br>현장 운영을 관리하세요.</h2><p>클라이언트와 크린매니저는 크린고 앱에서 청소 요청, 클린GO, 완료 사진과 신뢰도 기록을 확인합니다. 현재 App Store와 Google Play 출시를 준비하고 있습니다.</p><div class="store-status"><span><b>App Store</b><small>출시 후 연결 예정</small></span><span><b>Google Play</b><small>출시 후 연결 예정</small></span></div><p class="download-note">QR 코드는 현재 크린고 공식 안내 페이지로 연결됩니다. 스토어 출시 후 실제 앱 다운로드 페이지로 교체할 예정입니다.</p></div><aside class="qr-card"><img src="./creango-app-info-qr.png" width="320" height="320" alt="크린고 공식 안내 페이지 QR 코드"><strong>휴대폰 카메라로 스캔</strong><span>앱 출시 소식을 가장 먼저 확인하세요</span></aside></section>
     <section id="flow" class="wrap section"><p class="tag">HOW IT WORKS</p><h2>작업은 이렇게 관리됩니다</h2><div class="grid three"><article class="card"><em>01</em><h3>청소 요청</h3><p>클라이언트가 등록 숙소, 일정, 예상 소요시간과 현장 정보를 입력합니다.</p></article><article class="card"><em>02</em><h3>선택·클린GO</h3><p>크린매니저가 가능한 작업을 수락하고, 현장 도착 뒤 클린GO로 청소 시작을 확인합니다.</p></article><article class="card"><em>03</em><h3>사진 확인</h3><p>크린매니저가 완료 사진 6장을 등록하면 클라이언트가 작업 상태를 확인합니다.</p></article></div></section>
@@ -265,5 +283,31 @@
   </script>
   <script src="./intro.js" defer></script>
 <script src="/visit.js" defer></script>
+<script>
+(function () {
+  var form = document.getElementById('pre-register-form'); if (!form) return;
+  var message = document.getElementById('pre-register-message'); var button = form.querySelector('.prereg-submit'); var phoneInput = document.getElementById('pre-register-phone');
+  var API = 'https://api.creango.kr/api/pre-register';
+  phoneInput.addEventListener('input', function () { var d = phoneInput.value.replace(/[^0-9]/g, '').slice(0, 11); phoneInput.value = d.length > 7 ? d.slice(0, 3) + '-' + d.slice(3, 7) + '-' + d.slice(7) : d.length > 3 ? d.slice(0, 3) + '-' + d.slice(3) : d; });
+  function show(text, ok) { message.textContent = text; message.className = 'prereg-message ' + (ok ? 'ok' : 'err'); }
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var phone = phoneInput.value.replace(/[^0-9]/g, '');
+    if (!/^01[016789][0-9]{7,8}$/.test(phone)) return show('휴대폰 번호를 010으로 시작하는 번호로 정확히 입력해 주세요.', false);
+    var privacy = form.elements.consentPrivacy.checked; var sms = form.elements.consentLaunchSms.checked;
+    if (!privacy || !sms) return show('개인정보 수집·이용과 출시 안내 문자 수신에 모두 동의해 주세요.', false);
+    button.disabled = true; show('접수 중입니다…', true);
+    fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ phone: phone, role: form.elements.role.value, consentPrivacy: true, consentLaunchSms: true }) })
+      .then(function (response) { return response.json().then(function (data) { return { ok: response.ok, data: data }; }); })
+      .then(function (result) {
+        if (!result.ok) return show((result.data && result.data.error) || '사전가입에 실패했습니다. 잠시 후 다시 시도해 주세요.', false);
+        show(result.data.alreadyRegistered ? '이미 사전가입된 번호예요. 출시 때 문자로 알려 드릴게요.' : '사전가입이 완료됐어요! 정식 출시 때 이 번호로 문자를 보내 드릴게요.', true);
+        form.reset(); form.elements.role.value = 'host';
+      })
+      .catch(function () { show('네트워크 연결을 확인한 뒤 다시 시도해 주세요.', false); })
+      .then(function () { button.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>
